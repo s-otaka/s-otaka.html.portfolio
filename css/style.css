@@ -1,0 +1,635 @@
+/* レスポンシブ対応のため、10px=1remで対応 */
+html {
+    font-size: 62.5%;
+}
+
+/* ページ共通 */
+body {
+    font-family: "Lato", "Noto Sans JP", sans-serif;
+    color: #111111;
+    margin-top: 8rem;
+}
+
+.section-inner {
+    padding: 0 2.5rem; /* 表示画面が小さくなった時用の余白を追加 */
+    max-width: 121rem;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 4.8rem;
+    font-weight: bold;
+    line-height: calc(48 / 48);
+    color: #222222;
+}
+
+.section-title::before {
+    content: "";
+    width: 12rem;
+    height: 2px; /* 値が小さすぎると表示崩れを起こす可能性があるため、ここだけpx表記 */
+    display: inline-block;
+    background-color: #eb6700;
+    margin-right: 3.25rem;
+    transform: translateY(-1.8rem);
+}
+
+/* ヘッダー */
+.header {
+    background-color: #222222;
+    height: 8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem;
+    max-width: 144rem;
+    margin: 0 auto;
+    height: inherit;
+}
+
+.header-logo {
+    height: inherit;
+}
+
+.header-logo a {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.header-logo a:hover {
+    opacity: 0.7;
+}
+
+.header-nav {
+    height: inherit;
+}
+
+.header-list {
+    list-style: none;
+    display: flex;
+    height: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.header-item {
+    height: inherit;
+}
+
+.header-item a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: calc(19 / 16);
+    display: flex;
+    align-items: center;
+    height: inherit;
+    transition: 0.3s;
+}
+
+.header-item a:hover {
+    opacity: 0.7;
+}
+
+.header-item:nth-child(n + 2) {
+    margin-left: 4.8rem; /* 2番目以降の要素の左側に余白を足す */
+}
+
+/* メインビュー */
+.mv {
+    background: url(../img/mv.jpg) no-repeat right / cover;
+    height: calc(100vh - 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50rem;
+    position: relative;
+}
+
+.mv::before {
+    /* 画像上のマスク表示 */
+    content: "";
+    display: block;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.mv-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.mv-title {
+    color: #ffffff;
+    font-size: 6.4rem;
+    line-height: calc(64 / 64);
+}
+
+/* レスポンシブ用の改行があるため、PC画面時は無効化 */
+.sp-br {
+    display: none;
+}
+
+.mv-sub-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: calc(40 / 20);
+    text-align: center;
+    margin-top: 3.2rem;
+}
+
+.mv-button-wrapper {
+    margin-top: 6.4rem;
+    text-align: center;
+}
+
+.mv-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #eb6700;
+    color: #ffffff;
+    padding: 2rem 6.4rem 2.1rem 6.5rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: calc(20 / 20);
+    transition: 0.3s;
+}
+
+.mv-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.mv-button::before {
+    /* メールアイコン */
+    content: "";
+    display: inline-block;
+    width: 2.4rem;
+    height: 1.92rem;
+    background: url(../img/mail.svg) no-repeat center / contain;
+    margin-right: 0.7rem;
+}
+
+/* ABOUT */
+.about {
+    padding: 8.4rem 0 8rem 0;
+    background-color: #f5f5f5;
+}
+
+.about-wrapper {
+    margin-top: 6.4rem;
+}
+
+.about-container:nth-child(n + 2) {
+    margin-top: 6.4rem;
+}
+
+.about-title {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: calc(40 / 40);
+    text-align: center;
+    color: #eb6700;
+}
+
+.about-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ABOUTのイラストと文言の位置を反対にしたい時に使う */
+.about-body-reverse {
+    flex-direction: row-reverse;
+}
+
+.about-img {
+    width: calc(440 / 1160 * 100%);
+}
+
+.about-img img {
+    width: 100%;
+    aspect-ratio: 440 / 330;
+    object-fit: contain;
+}
+
+.about-body-text-group {
+    align-items: center;
+    width: calc(470 / 1160 * 100%);
+}
+
+.about-text-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: calc(24 / 24);
+}
+
+.about-text {
+    font-size: 1.6rem;
+    line-height: calc(32 / 16);
+    margin-top: 3.2rem;
+}
+
+/* NEWS */
+.news {
+    padding: 8rem 0;
+    background: linear-gradient(#ffffff 63%, #222222 37%);
+}
+
+.news-cards {
+    margin-top: 6.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3.9rem;
+}
+
+.news-card {
+    text-decoration: none;
+    background-color: #ffffff;
+    box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.16);
+    transition: 0.3s;
+}
+
+.news-card:hover {
+    opacity: 0.7;
+}
+
+/* 他の画像に差し代わることによる表示崩れ防止 */
+.news-img img {
+    aspect-ratio: 360 / 270;
+    width: 100%;
+    object-fit: cover;
+}
+
+.news-text {
+    padding: 2rem 2rem 3.2rem 2rem;
+    font-size: 1.6rem;
+    color: #111111;
+    line-height: calc(32 / 16);
+}
+
+/* ACCESS */
+.access {
+    padding: 8rem 0;
+    background-color: #f5f5f5;
+}
+
+.access-container {
+    margin-top: 6.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.access-img {
+    width: calc(572 / 1160 * 100%);
+}
+
+.access-info {
+    width: calc((411 - 140 + 219) / 1160 * 100%);
+    height: 34.3rem;
+}
+
+.access-info div:nth-child(n + 2) {
+    margin-top: 2.4rem;
+}
+
+.access-info dt {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.018rem;
+    line-height: calc(18 / 18);
+    color: #000000;
+}
+
+.access-info dd {
+    font-size: 1.6rem;
+    letter-spacing: 0.016rem;
+    line-height: calc(32 / 16);
+    color: #000000;
+    margin-top: 1rem;
+}
+
+.access-map {
+    margin: 6.4rem auto;
+    width: 76.8rem;
+}
+
+.access-map iframe {
+    width: 100%;
+    height: 46.1rem;
+}
+
+/* CONTACT */
+.contact {
+    padding: 8rem 0;
+}
+
+.contact-text {
+    margin-top: 6.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: calc(32 / 16);
+}
+
+.contact-text span {
+    color: #eb6700;
+}
+
+.form {
+    margin-top: 7.2rem;
+}
+
+/* メールアドレス・法人/個人のみ */
+.form-item:nth-child(even) {
+    margin-top: 4.8rem;
+}
+
+/* 電話番号のみ */
+.form-item:nth-child(3) {
+    margin-top: 4rem;
+}
+
+/* お問い合わせ種別・お問い合わせ内容のみ */
+.form-item:nth-child(n + 5) {
+    margin-top: 4.845rem;
+}
+
+.form-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: calc(28 / 16);
+    color: #002222;
+}
+
+.form-input-wrapper {
+    margin-top: 1.2rem;
+}
+
+.form-input-wrapper input[type="text"],
+.form-input-wrapper input[type="mail"],
+.form-input-wrapper input[type="tel"],
+.form-input-wrapper select,
+.form-input-wrapper textarea {
+    width: 57.2rem;
+    font-size: 1.6rem;
+    line-height: calc(28.8 / 16);
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #f5f5f5;
+}
+
+/* お名前・メールアドレス・電話番号用 */
+.form-input-wrapper input[type="text"],
+.form-input-wrapper input[type="mail"],
+.form-input-wrapper input[type="tel"] {
+    padding: 1.4rem 2rem;
+}
+
+/* お問い合わせ種別用 */
+.form-input-wrapper select {
+    padding: 1.445rem 5.2rem 1.355rem 2rem;
+    appearance: none;
+}
+
+/* お問い合わせ内容用 */
+.form-input-wrapper textarea {
+    width: 100%;
+    padding: 1.345rem 2rem;
+    height: 20rem;
+    resize: none;
+}
+
+.form-input-wrapper input::placeholder,
+.form-input-wrapper select:invalid,
+.form-input-wrapper textarea::placeholder {
+    color: #8d8d8d;
+}
+
+/* 必須項目マーク */
+.form-title::after {
+    content: "*";
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: calc(24 / 22);
+    color: #eb6700;
+}
+
+.form-radio {
+    position: relative;
+}
+
+.form-radio label {
+    font-size: 1.6rem;
+    line-height: calc(24 / 16);
+    color: #222222;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ラジオボタンの丸枠を疑似クラスで表示 */
+.form-radio label::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #707070;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+/* ラジオボタンの選択時の丸マークを疑似クラスで表示 */
+.form-radio input[type="radio"]:checked + label::after {
+    content: "";
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #eb6700;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.6rem;
+    left: 0.4rem;
+}
+
+.form-radio input[type="radio"] {
+    /* デフォルトの選択マークを透明にして見えないように */
+    opacity: 0;
+    position: absolute;
+}
+
+.form-radio label:nth-child(n + 2) {
+    margin-top: 1rem;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+/* ドロップダウンの▼を疑似クラスで表示 */
+.select-wrapper::before {
+    content: "▼";
+    display: inline-block;
+    position: absolute;
+    color: #222222;
+    font-size: 0.8rem;
+    line-height: calc(6 / 8);
+    right: 50%;
+    top: 50%;
+    transform: translate(-2rem, -50%);
+}
+
+.form-agree {
+    margin-top: 6.44rem;
+}
+
+.form-agree label {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: calc(24 / 16);
+    color: #002222;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+/* チェックボックスの枠を疑似クラスで表示 */
+.form-agree label::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #707070;
+    margin-right: 0.5rem;
+}
+
+/* チェックボックスのチェック時マークを疑似クラスで表示 */
+.form-agree input[type="checkbox"]:checked + label::after {
+    content: "";
+    display: inline-block;
+    width: 0.7rem;
+    height: 1.2rem;
+    border-bottom: 3px solid #eb6700;
+    border-right: 3px solid #eb6700;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0.5rem;
+    left: 0.6rem;
+}
+
+.form-agree input[type="checkbox"] {
+    /* デフォルトの選択マークを透明にして見えないように */
+    opacity: 0;
+    position: absolute;
+}
+
+.form-agree label a {
+    color: #002222;
+    transition: 0.3s;
+}
+
+.form-agree label a:hover {
+    opacity: 0.7;
+}
+
+.form-submit {
+    margin-top: 6.36rem;
+}
+
+.button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.048rem;
+    line-height: calc(28 / 16);
+    color: #ffffff;
+    padding: 1.8rem 10.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #eb6700;
+    box-shadow: 0 0.3rem 1rem rgba(3, 152, 152, 0.2);
+    transition: 0.3s;
+}
+
+.button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* フッター */
+.footer {
+    padding: 4rem 0 2.4rem;
+    background-color: #222222;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo a {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.footer-logo a:hover {
+    opacity: 0.7;
+}
+
+.footer-logo img {
+    width: 13rem;
+}
+
+.footer-nav {
+    margin-top: 3.3rem;
+}
+
+.footer-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-item a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: calc(18 / 15);
+    color: #ffffff;
+    text-decoration: none;
+    /* クリックしやすいように両端に余白をつける */
+    padding: 0 2.4rem;
+    transition: 0.3s;
+}
+
+.footer-item a:hover {
+    opacity: 0.7;
+}
+
+.footer-copyright {
+    margin-top: 2.4rem;
+    text-align: center;
+}
+
+.footer-copyright small {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: calc(30 / 12);
+    color: #ffffff;
+}
